@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wrightworks Group | Contact</title>
+
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/png" href="../assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Wrightworks" />
+  <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Exo+2:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+
+  <!-- Scripts -->
+  <script src="../assets/js/confetti.js" defer></script>
+  <script src="../assets/js/icons.js" crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div href="./index.html" class="logo">Wrightworks Group</div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">HOME</a></li>
+        <li><a href="./about.html">ABOUT</a></li>
+        <li><a href="./services.html">SERVICES</a></li>
+        <li><a href="./contact.html">CONTACT</a></li>
+        <li><a href="https://instagram.com/" class="fab fa-instagram text-lg opacity-8"></a></li>
+        <li><a href="https://facebook.com/" class="fab fa-facebook text-lg opacity-8"></a></li>
+        <li><a href="https://youtube.com/" class="fab fa-youtube text-lg opacity-8"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Contact Wrightworks Group</h1>
+    <p>Reach out for quotes, project inquiries, or general questions about our contracting services. We’ll respond as soon as possible.</p>
+  </section>
+
+  <!-- CONTACT FORM SECTION -->
+  <section class="section light" id="contact-section">
+    <h2 style="text-align:center;">Get in Touch</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      Please fill out the form below and we’ll get back to you. All fields marked * are required.
+    </p>
+    <br>
+  
+    <!-- Contact Form -->
+    <form id="contactForm" style="max-width:700px; margin:auto; display:flex; flex-direction:column;">
+      <label for="fname">First Name*</label>
+      <input type="text" id="fname" name="first_name" placeholder="First Name" required>
+  
+      <label for="lname">Last Name*</label>
+      <input type="text" id="lname" name="last_name" placeholder="Last Name" required>
+  
+      <label for="email">Email*</label>
+      <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+  
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" name="phone" placeholder="Your Phone Number">
+  
+      <label for="address">Project Suburb</label>
+      <input type="text" id="address" name="address" placeholder="Suburb">
+  
+      <label for="budget">Approximate Budget</label>
+      <input type="text" id="budget" name="budget" placeholder="Optional">
+  
+      <label for="subject">Project Details*</label>
+      <textarea id="subject" name="message" placeholder="Describe your project or enquiry" style="height:200px;" required></textarea>
+  
+      <button type="submit" class="request-quote">Submit</button>
+    </form>
+  
+    <!-- Success Modal -->
+    <div id="popup" class="modal">
+      <div class="modal-content">
+        <button type="close" class="close">&times;</button>
+        <p>Thank you! Your message has been sent. We aim to respond within 72 hours.</p>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    const form = document.getElementById('contactForm');
+    const modal = document.getElementById('popup');
+    const closeBtn = modal.querySelector('.close');
+  
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent page redirect
+  
+      const formData = new FormData(form);
+      const endpoint = 'https://formspree.io/f/xpwygokj'; // Your Formspree endpoint
+  
+      fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          modal.style.display = 'block';
+          form.reset();
+        } else {
+          alert('Oops! There was a problem submitting your form.');
+        }
+      })
+      .catch(error => {
+        alert('Oops! There was a problem submitting your form.');
+        console.error(error);
+      });
+    });
+  
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click', e => { if (e.target == modal) modal.style.display = 'none'; });
+  </script>
+
+  <!-- COPYRIGHT FOOTER -->
+  <footer>
+    <img src="../assets/images/Wrightworks Group 3.png" alt="Wrightworks Group Logo" class="footer-logo" />
+    <h3>Wrightworks Group</h3>
+    <p>ABN: 17 944 912 956<br>
+       Serving clients Sydney-Wide<br>
+       <strong>Email:</strong> info@wrightworksgroup.com<br>
+       <!--<strong>Phone:</strong> 0400 000 000-->
+    </p>
+    <div class="copyright">
+      © <script>document.write(new Date().getFullYear())</script> Wrightworks Group. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
