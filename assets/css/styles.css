@@ -6,6 +6,7 @@
 :root {
   --primary: #1c58b4;         /* Steel blue */
   --primary-dark: #0e2445;    /* Charcoal navy */
+  --secondary: #14498a;
   --accent: #d9931a;          /* Warm amber accent */
   --light-bg: #f5f7fa;
   --dark-bg: #101820;
@@ -194,10 +195,10 @@ ul li:hover a {
 /* --- Request a Quote Section --- */
 .request-quote {
   text-align: center;
-  background-color: var(--accent);
+  background: linear-gradient(to top, var(--primary-dark), var(--primary));
   color: var(--dark-bg);
   font-weight: 700;
-  font-family: "Rajdhani", sans-serif;
+  font-family: var(--font-header);
   padding: 3rem 2rem;
   margin-bottom: 5rem;
   margin-left: 11rem;
@@ -208,18 +209,19 @@ ul li:hover a {
 
 .request-quote a {
   display: inline-block;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   color: var(--text-light);
   padding: 0.8rem 2rem;
   border-radius: 6px;
   text-decoration: none;
   font-size: 1.1rem;
   transition: background-color 0.3s ease;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
 .request-quote a:hover {
-  background-color: #163e70;
+  background-color: #14529c;
 }
 
 /* --- Footer --- */
