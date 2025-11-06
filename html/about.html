@@ -44,7 +44,7 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <h1>About Wrightworks Group</h1>
-    <p>Delivering professional general contracting services across Australia — with reliability, precision, and craftsmanship.</p>
+    <p>Delivering professional general contracting services across Sydney — with reliability, precision, and craftsmanship.</p>
   </section>
 
   <!-- COMPANY OVERVIEW SECTION -->
@@ -93,11 +93,12 @@
   </div>
 </section>
 
-
-  <!-- REQUEST A QUOTE -->
-  <div class="request-quote">
-    <a href="./contact.html">Request a Quote</a>
-  </div>
+<!-- Request a Quote CTA -->
+<section class="request-quote section dark">
+  <h2>Need a Job Done?</h2>
+  <p>Contact Wrightworks Group today for a free quote or to discuss your next project.</p>
+  <a href="./html/contact.html">Request a Quote</a>
+</section>
 
   <!-- FOOTER -->
   <footer>
@@ -112,25 +113,3 @@
       © <script>document.write(new Date().getFullYear())</script> Wrightworks Group. All rights reserved.
     </div>
   </footer>
-
-  <!-- Confetti Script -->
-  <script>
-    const btn = document.getElementById("Subscribe");
-    if(btn){
-      btn.onclick = function() {
-        const duration = 5 * 1000,
-          animationEnd = Date.now() + duration,
-          defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-        function randomInRange(min, max) { return Math.random() * (max - min) + min; }
-        const interval = setInterval(function() {
-          const timeLeft = animationEnd - Date.now();
-          if (timeLeft <= 0) { return clearInterval(interval); }
-          const particleCount = 50 * (timeLeft / duration);
-          confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1,0.3), y: Math.random()-0.2 }}));
-          confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7,0.9), y: Math.random()-0.2 }}));
-        }, 250);
-      }
-    }
-  </script>
-</body>
-</html>
